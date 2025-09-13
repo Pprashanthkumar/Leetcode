@@ -1,9 +1,38 @@
 class Solution {
     public int maxFreqSum(String s) {
+
+        int vow[]=new int[26];
+        int con[]=new int[26];
+
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if("AEIOUaeiou".indexOf(ch)!=-1){
+                vow[ch-'a']++;
+            }else
+                con[ch-'a']++;
+        }
+        System.out.println(Arrays.toString(vow));
+        System.out.println(Arrays.toString(con));
+
+        int res=0,sum=0;;
+        for(int i=0;i<26;i++){
+            sum=Math.max(vow[i],sum);
+        }
+        res=sum;
+        sum=0;
+        for(int i=0;i<26;i++){
+            sum=Math.max(con[i],sum);
+        }
+        res+=sum;
+
+
+        return res;
+
+        /*
         Map<Character,Integer> vow=new HashMap<>();
         Map<Character,Integer> con=new HashMap<>(); 
 
-
+        
         // Push into map all character in the string
         for(int i=0;i<s.length();i++){
             char ch=s.charAt(i);
@@ -32,5 +61,6 @@ class Solution {
         // System.out.println("Con: "+con);
         res+=maxFreq;
         return res;
+        */
     }
 }
