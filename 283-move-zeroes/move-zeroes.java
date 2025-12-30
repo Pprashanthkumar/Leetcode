@@ -1,13 +1,11 @@
 class Solution {
     public void moveZeroes(int[] nums) {
         int zeroCnt=0;
-        for(int val:nums){
-            if(val==0) zeroCnt++;
-            
-        }
         int ind=0;
         for(int val:nums){
-            if(val==0) continue;
+            if(val==0){
+                zeroCnt++;
+            }
             else{
                 nums[ind++]=val;
             }
